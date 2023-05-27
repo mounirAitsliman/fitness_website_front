@@ -824,6 +824,7 @@ img {
   font-size: 1.25rem;
   z-index: var(--z-tooltip);
   transition: .3s;
+  margin-right: 80px;
 }
 
 .scrollup:hover{
@@ -1167,8 +1168,8 @@ img {
 
 
 *, html {
-  --primaryGradient: linear-gradient(93.12deg, #581B98 0.52%, #9C1DE7 100%);
-  --secondaryGradient: linear-gradient(268.91deg, #581B98 -2.14%, #9C1DE7 99.69%);
+  --primaryGradient: linear-gradient(93.12deg, #020202 0.52%, hsl(79, 72%, 55%) 100%);
+  --secondaryGradient: linear-gradient(268.91deg, #080808 -2.14%, hsl(79, 72%, 55%) 99.69%);
   --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
   --primary: #581B98;
@@ -1177,9 +1178,10 @@ img {
 /* CHATBOX
 =============== */
 .chatbox {
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   right: 30px;
+  z-index: 1;
 }
 
 /* CONTENT IS CLOSE */
@@ -1205,6 +1207,7 @@ img {
 /* BUTTON */
 .chatbox__button {
   text-align: right;
+
 }
 
 .send__button {
@@ -1235,14 +1238,17 @@ img {
   background: orange;
   max-width: 60.6%;
   width: fit-content;
+  background: #581B98;
 }
 
 .messages__item--operator {
   margin-left: auto;
+  
 }
 
 .messages__item--visitor {
   margin-right: auto;
+  color: black;
 }
 
 /* FOOTER */
@@ -1310,7 +1316,7 @@ img {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  background: var(--primary);
+  background: hsl(79, 72%, 55%);
   color: white;
 }
 
@@ -1321,8 +1327,8 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px;
-  background: var(--secondaryGradient);
-  box-shadow: var(--secondaryBoxShadow);
+  background: var(--primaryGradient);
+  box-shadow: var(--primaryBoxShadow);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   margin-top: 20px;
