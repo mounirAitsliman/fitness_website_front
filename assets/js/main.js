@@ -146,5 +146,47 @@ calculateForm.addEventListener('submit', calculateBmi)
 
 
 /*=============== EMAIL JS ===============*/
+const contactForm = document.getElementById('contact-form'),
+      contactMessage = document.getElementById('contact-message'),
+      contactUser = document.getElementById('contact-user')
+
+const sendEmail = (e) => {
+    e.preventDefault()
+
+    //check if the field has a value
+    if(contactUser.value === ''){
+        //Add and remove color
+        contactMessage.classList.remove('color-green')
+        contactMessage.classList.add('color-red')
+        
+        //show message
+        contactMessage.textContent = 'You must enter your email 👆'
+
+        //remove message three seconds
+        setTimeout(()=>{
+            contactMessage.textContent = ''
+        }, 3000)
+    } else {
+        // serviceID, templateID , #form , publicKey
+        emailjs.sendForm('service_tj6myko', 'template_mncdgg2', '#contact-form', 'qVNoCoU4q43fDMgti')
+            .then( ()=> {
+                // show message and add color
+                contactMessage.classList.add('color-green')
+                contactMessage.textContent = 'You registred successfully 💪'
+
+                //remove message after three seconds
+                setTimeout(()=>{
+                    contactMessage.textContent =''
+                }, 3000)
+            }, (error) => {
+                //Mail sending error
+                alert('OOPS! SOMTHING HAS FAILED...',error) 
+            })
+        // to clear the input field
+        contactUser.value =''
+
+    }
+}
+contactForm.addEventListener('submit', sendEmail)
 
 
